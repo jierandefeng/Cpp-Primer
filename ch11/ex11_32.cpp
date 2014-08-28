@@ -40,7 +40,7 @@ int main()
         auto size = map.count(curr->first);
         std::vector<std::string> works(size);
 
-        //! fill 
+        //! fill and increment curr 
         for(auto& elem : works)
             elem = curr++->second;
 
