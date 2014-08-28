@@ -1,6 +1,5 @@
 //! @Alan
 //!
-//!
 //! Exercise 11.32:
 //! Using the multimap from the previous exercise, write a program to
 //! print the list of authors and their works alphabetically.
@@ -12,20 +11,52 @@
 #include <algorithm>
 #include <vector>
 
-
-
 int main()
 {
-    //! define and initialize the multimap
-    std::multimap<std::string, std::string> m = {{"lan","z111"},{"alan","a112"},{"Alan","a113"},{"cWang","g222"}};
+    std::multimap<std::string, std::string> map
+    {
+        {"alan","google"},
+        {"alan","bible"},
+        {"Alan","fall"},
+        {"Wang","sky"},
+        {"Wang","oh sky"}
+    };
 
-    //! print the map without sorting
-    for(const auto &e : m)
-        std::cout << e.first << " " << e.second << "\n";
-    std::cout << "\n";
+    /**
+     * @brief   print alphabetically    for Exercise 11.32
+     *
+     * @complx  O(n)
+     *
+     * @extra space O(n)
+     *
+     * @report  by @Queequeg
+     */
+    for(auto curr = map.begin(); curr != map.end();/* empty */)
+    {
+        //! print author
+        std::cout << curr->first << ":";
 
+        //! build buffer for works
+        auto size = map.count(curr->first);
+        std::vector<std::string> buffer(size);
 
+        //! fill with works
+        for(auto& elem : buffer)
+            elem = curr++->second;
+
+        //! sort works
+        std::sort(buffer.begin(), buffer.end());
+
+        //! print works in buffer
+        for(const auto& elem : buffer)
+            std::cout << elem << "  ";
+        std::cout << std::endl;
+    }
 
     return 0;
 }
+//! @output
+//Alan:fall
+//Wang:oh sky  sky
+//alan:bible  google
 
