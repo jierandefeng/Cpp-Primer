@@ -40,14 +40,14 @@ int main()
         auto size = map.count(curr->first);
         std::vector<std::string> works(size);
 
-        //! fill with works
+        //! fill 
         for(auto& elem : works)
             elem = curr++->second;
 
-        //! sort works
+        //! sort 
         std::sort(works.begin(), works.end());
 
-        //! print works in buffer
+        //! print works 
         for(const auto& elem : works)
             std::cout << elem << "  ";
         std::cout << std::endl;
