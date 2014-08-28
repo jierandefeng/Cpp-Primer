@@ -38,17 +38,17 @@ int main()
 
         //! build buffer for works
         auto size = map.count(curr->first);
-        std::vector<std::string> buffer(size);
+        std::vector<std::string> works(size);
 
         //! fill with works
-        for(auto& elem : buffer)
+        for(auto& elem : works)
             elem = curr++->second;
 
         //! sort works
-        std::sort(buffer.begin(), buffer.end());
+        std::sort(works.begin(), works.end());
 
         //! print works in buffer
-        for(const auto& elem : buffer)
+        for(const auto& elem : works)
             std::cout << elem << "  ";
         std::cout << std::endl;
     }
