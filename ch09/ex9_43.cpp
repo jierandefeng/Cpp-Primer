@@ -41,7 +41,7 @@ int abbrv_handler(std::string &s, const std::string &oldVal, const std::string &
             //! @note   build sub_str from s to compare the oldVal laterly
             auto tmp = s.substr(it - s.begin(), oldVal.size());
 
-            if (tmp.compare(oldVal) == 0)
+            if (tmp==oldVal)
             {
                 //! @note   Store the offset has been checked
                 int offSet = it - s.begin();
